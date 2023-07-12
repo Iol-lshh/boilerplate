@@ -1,4 +1,16 @@
 #  v1. 
+
+## jar 빌드
+```shell
+./gradlew bootJar
+```
+
+## 도커 파일 빌드
+```shell
+docker build -t markhong93/eureka-server .
+docker build -t markhong93/gateway-server .
+docker build -t markhong93/user-server .
+```
 ## 컴포스 파일 실행
 ```shell
 cd boilerplate\backend\v1\compose
