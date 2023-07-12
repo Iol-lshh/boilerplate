@@ -1,0 +1,28 @@
+# Base 이미지로 AdoptOpenJDK의 JRE 이미지 사용
+FROM adoptopenjdk:17-jre-hotspot AS base
+
+# 작업 디렉토리 생성
+WORKDIR /app
+
+# 애플리케이션 JAR 파일을 작업 디렉토리로 복사
+COPY app.jar .
+
+# 시작 명령을 정의
+CMD ["java", "-jar", "app.jar"]
+
+# `docker build -t [배포도커허브닉네임]/[이미지이름] [목표경로]` 빌드
+## docker build -t markhong93/user-server .
+
+
+
+# or
+# 베이스 이미지
+FROM eclipse-temurin:17-jre AS base
+# 경로
+ARG JAR_FILE="build/libs/board-server-0.0.1-SNAPSHOT.jar"
+# 복사
+COPY ${JAR_FILE} board-server.jar
+# Eureka 서버 IP를 환경 변수로 지정
+ENV EUREKA_SERVER_IP board_server_ip
+# 실행
+ENTRYPOINT ["java","-jar","/board-server.jar"]

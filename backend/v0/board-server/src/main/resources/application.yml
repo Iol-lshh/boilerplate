@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/boilerplate
+    username: root
+    password: 1234
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true

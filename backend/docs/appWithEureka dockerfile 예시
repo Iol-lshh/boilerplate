@@ -1,0 +1,14 @@
+# Base 이미지로 AdoptOpenJDK의 JRE 이미지 사용
+FROM adoptopenjdk:17-jre-hotspot AS base
+
+# 작업 디렉토리 생성
+WORKDIR /app
+
+# 애플리케이션 JAR 파일을 작업 디렉토리로 복사
+COPY app.jar .
+
+# Eureka 서버 IP를 환경 변수로 지정
+ENV EUREKA_SERVER_IP=your_eureka_server_ip
+
+# 시작 명령을 정의
+CMD ["java", "-jar", "app.jar"]

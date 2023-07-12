@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  eureka-server:
+    image: your_eureka_server_image
+    ports:
+      - 8761:8761
+
+  web-app1:
+    build:
+      context: .
+      dockerfile: Dockerfile-web-app1
+    environment:
+      - EUREKA_SERVER_IP=your_eureka_server_ip
+    depends_on:
+      - eureka-server
+
+  web-app2:
+    build:
+      context: .
+      dockerfile: Dockerfile-web-app2
+    environment:
+      - EUREKA_SERVER_IP=your_eureka_server_ip
+    depends_on:
+      - eureka-server
