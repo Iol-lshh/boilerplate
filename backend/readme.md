@@ -36,11 +36,15 @@
 2. Docker 구성
    - Docker file
    - Docker Compose file
+
 ![goal1_finished](./docs/goal1_containers.PNG)
+
 3. 호스트 머신의 DB
 
 ## goal 2: 복수 가상 머신의 MSA
+
 ![goal2_pattern](./docs/goal2_pattern.png)
+
 1. Docker 포트포워딩
 
 ## goal 3: 분산 가상 머신의 MSA
