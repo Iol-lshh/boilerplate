@@ -2,7 +2,10 @@ spring:
   application:
     name: user-server
   datasource:
-    url: r2dbc:mariadb://localhost:3306/boilerplate
+    # local
+#    url: r2dbc:mariadb://localhost:3306/boilerplate
+    # docker
+    url: r2dbc:mariadb://host.docker.internal:3306/boilerplate
     username: root
     password: 1234
   jpa:

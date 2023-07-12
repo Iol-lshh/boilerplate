@@ -2,7 +2,10 @@ spring:
   application:
     name: board-server
   datasource:
-    url: jdbc:mariadb://localhost:3306/boilerplate
+    # local
+#    url: jdbc:mariadb://localhost:3306/boilerplate
+    # docker
+    url: jdbc:mariadb://host.docker.internal:3306/boilerplate
     username: root
     password: 1234
   jpa:
@@ -26,7 +29,7 @@ eureka:
       # local
 #      defaultZone: http://localhost:8761/eureka
       # docker
-      defaultZone: http://eureka-server:8761/eureka
+      defaultZone: http://eureka-server/eureka
   instance:
     instance-id: ${spring.application.name}:${random.value}
 
