@@ -6,16 +6,16 @@ services:
     networks:
       - test-net
     ports:
-      - 8761:8761
+      - 8761:80
     environment:
-      eureka.client.serviceUrl.defaultZone: http://eureka-server:8761/eureka
+      eureka.client.serviceUrl.defaultZone: http://eureka-server/eureka
 
   user-server:
     image: markhong93/user-server
     networks:
       - test-net
     environment:
-      eureka.client.serviceUrl.defaultZone: http://eureka-server:8761/eureka
+      eureka.client.serviceUrl.defaultZone: http://eureka-server/eureka
     depends_on:
       - eureka-server
 
@@ -24,9 +24,9 @@ services:
     networks:
       - test-net
     ports:
-      - 8080:8080
+      - 8080:80
     environment:
-      eureka.client.serviceUrl.defaultZone: http://eureka-server:8761/eureka
+      eureka.client.serviceUrl.defaultZone: http://eureka-server/eureka
     depends_on:
       - eureka-server
 

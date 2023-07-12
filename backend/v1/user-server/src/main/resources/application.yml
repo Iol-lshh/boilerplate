@@ -16,7 +16,10 @@ spring:
         format_sql: true
 
 server:
-  port: 0
+  # local
+#  port: 0
+  # docker
+  port: 80
 
 eureka:
   client:
@@ -26,7 +29,7 @@ eureka:
       # local
 #      defaultZone: http://localhost:8761/eureka
       # docker
-      defaultZone: http://eureka-server:8761/eureka
+      defaultZone: http://eureka-server/eureka
   instance:
     instance-id: ${spring.application.name}:${random.value}
 

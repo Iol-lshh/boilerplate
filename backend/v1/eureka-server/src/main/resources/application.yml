@@ -3,7 +3,10 @@ spring:
     name: eureka-server
 
 server:
-  port: ${service_port:8761}
+  # local
+#  port: ${service_port:8761}
+  # docker
+  port: ${service_port:80}
 
 eureka:
   instance:
