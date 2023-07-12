@@ -28,24 +28,4 @@ management:
       endpoint:
         shutdown:
           enabled: true
-# Uncomment if you'd rather use multi-peer Eureka with the eureka-1 and eureka-2
-# profiles below
-#
-#eureka:
-#  client:
-#    service-url:
-#      defaultZone: http://${other.eureka.host}:${other.eureka.port}/eureka
-
-#---
-#spring:
-#  profiles: eureka-1
-#  application:
-#    name: eureka-1
-
-#server:
-#  port: 8761
-
-#eureka:
-#  instance:
-#    hostname: eureka.chunjae.com
 
