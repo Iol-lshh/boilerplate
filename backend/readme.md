@@ -48,3 +48,6 @@
 1. Docker 포트포워딩
 
 ## goal 3: 분산 가상 머신의 MSA
+- 컴포즈 파일은 goal1을 따라도 될까..?
+
+![goal3_pattern](./docs/goal3_pattern.png)
