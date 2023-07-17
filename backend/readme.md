@@ -41,6 +41,14 @@
 
 3. 호스트 머신의 DB
 
+### goal 1.1: auth-server
+1. [OpenID Provider (OAuth 2.1)](./docs/OAuth.md)
+2. 써드파티 OpenID Provider 이용
+
+### goal 1.1: CI/CD
+1. Jenkins
+2. 
+
 ## goal 2: 복수 가상 머신의 MSA
 
 ![goal2_pattern](./docs/goal2_pattern.png)
