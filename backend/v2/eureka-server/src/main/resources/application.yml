@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: eureka-server
+
+server:
+  port: ${service_port:80}
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, shutdown
+      endpoint:
+        shutdown:
+          enabled: true
+
