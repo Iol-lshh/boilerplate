@@ -35,10 +35,10 @@ services:
       - 5672:5672
       - 15672:15672
 
-  postgres:
+  postgres-db:
     build:
-      context: "../api-repository/docs/db"
-    container_name: local-api-repository-psql
+      context: "../db"
+    container_name: "local-api-repository-psql"
     networks:
       - test-net
     ports:
@@ -48,21 +48,27 @@ services:
       POSTGRES_PASSWORD: lshh.com
       POSTGRES_DB: api_repository
     volumes:
-      - /IdeaProjects/api-repository/DB/pgdata:/var/lib/postgresql/data
+      - ../db/pgdata:/var/lib/postgresql/data
 
   api-repository:
-    build: 
+    build:
       context: "../api-repository"
     container_name: "local-api-repository"
-    networks:
+    networks: 
       - test-net
     ports:
-      - 8999:80
+      - 9891:80
     environment:
       eureka.client.serviceUrl.defaultZone: http://eureka-server/eureka
+      #spring.datasource.url: jdbc:postgresql://${DB_HOSTNAME}:${DB_PORT}/${DB_NAME}
+      #spring.datasource.username: ${DB_USERNAME}
+      #spring.datasource.password: ${DB_PASSWORD}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://${DB_HOSTNAME}:${DB_PORT}/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
     depends_on:
-      - postgres
       - eureka-server
+      - postgres-db
 
 
 networks:

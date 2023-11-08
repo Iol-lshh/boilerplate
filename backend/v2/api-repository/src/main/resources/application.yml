@@ -8,9 +8,10 @@ spring:
   # Database
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://172.30.1.9:5432/api_repository
-    username: lshh
-    password: lshh.com
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
   sql:
     init:
       platform: postgres
@@ -30,15 +31,7 @@ management:
     web:
       exposure:
         include: "*"
-        exclude: env, beans, health, info, metrics, shutdown
-
-springdoc:
-  api-docs:
-    path: /api-repository/v3/api-docs
-    configUrl: /api-repository/v3/api-docs/swagger-config
-    url: /api-repository/v3/api-docs
-  swagger-ui:
-    path: /api-repository/swagger-ui.html
+        exclude: env, beans
 
 
 eureka:

@@ -6,8 +6,12 @@ WORKDIR /build
 COPY build.gradle settings.gradle ./
 COPY src/ ./src/
 
+#ENV SPRING_DATASOURCE_URL=jdbc:postgresql://172.30.1.9:5432/api_repository
+#ENV SPRING_DATASOURCE_USERNAME=lshh
+#ENV SPRING_DATASOURCE_PASSWORD=lshh.com
+
 # 프로젝트를 빌드합니다.
-RUN gradle build
+RUN gradle build 
 
 # 두 번째 스테이지: 빌드된 어플리케이션을 실행하는 베이스 이미지
 FROM openjdk:17-slim
