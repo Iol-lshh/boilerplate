@@ -69,3 +69,27 @@ create table api_query_argument(
 	deleted TIMESTAMPTZ,
 	is_enabled bool
 );
+
+insert into api_resourcer_info(
+	id, name, 	path, 
+	description, access_name, key, 
+	driver, driver_class_name, 
+	created, is_enabled ) values
+(	1, 'test',	'localhost:5432/api_repository',
+	'테스트 리소서', 'lshh', 'lshh.com', 
+	'postgresql', 'org.postgresql.Driver',
+	current_timestamp, true);
+
+insert into api_query(
+	name, 
+	contents, 
+	description, resourcer_id, created, is_enabled) values
+(	1, 'test',
+	'select ''test ok'' as result',
+	'테스트 쿼리', 1, current_timestamp, true);
+
+insert into api_router(
+	id, name, path,
+	description, is_disabled, query_id, created, is_enabled ) values
+(	1, 'test', 'test',
+	'테스트 라우터', false, 1, current_timestamp, true);
